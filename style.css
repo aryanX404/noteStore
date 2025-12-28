@@ -137,20 +137,20 @@ body {
 
 }
 .hero-section{
-    padding: 180px 0px;
+    padding: 170px 0px;
     width: 100%;
     /* margin-top: 20px; */
     height: auto;
-    background-color: #0b62f5;
+    background-color: #11295a;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-image: url("Assets/hero3_resisez2.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center -300px;
+    background-position: center;
     background-blend-mode: multiply;
-    border-bottom: 1px solid var(--border-color);
+    /* border-bottom: 1px solid var(--border-color); */
 }
 
 .hero-title{
@@ -225,6 +225,7 @@ body {
 }   
 
 .working{
+    background: linear-gradient(to bottom, black, var(--bg-color), var(--bg-color));
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -279,9 +280,7 @@ body {
 }
 
 .step-card{
-    /* background-color: var(--surface-color); */
     padding: 20px;
-    /* margin-top: 25px; */
     background: rgba(255,255,255,0.02);
     border-radius: 12px;
     padding: 24px;
