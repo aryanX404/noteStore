@@ -18,6 +18,7 @@
   /* Accent Color (for high conversion) */
   /* --accent-orange:#006d77; */
   --accent-orange: #f59e0b;    /* CTA buttons (Buy, Download PYQs) */
+  --accent-orange-lite: #f59f0bbb;    /* lighter version CTA buttons (Buy, Download PYQs) */
   --accent-hover: #d97706;
 
   /* Typography */
@@ -26,7 +27,7 @@
   --text-disabled: #6b7280;    /* Placeholders and footer text */
 
   /* Borders & Dividers */
-  --border-color: #334155;
+  --border-color: #40536d;
 
   --font-family-primary: 'Raleway', sans-serif;
   --font-family-secondary: 'Playfair', serif;
@@ -59,7 +60,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
 
 }
 
@@ -121,12 +122,12 @@ body {
 }
 
 .signup-btn {
-    columns: var(--text-high);
+    color: var(--bg-color);
     padding: 8px 16px;
     border-radius: 100px;
     cursor: pointer;
-    background-color: var(--accent-orange);
-    box-shadow: 1px 1px 5px 0px var(--accent-orange);
+    background-color: var(--accent-orange-lite);
+    /* box-shadow: 1px 1px 5px 0px var(--accent-orange); */
     transition: background-color var(--transition), color var(--transition);
     font-weight: 600;
 }
@@ -144,9 +145,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url("Assets/hero3.jpg");
+    background-image: url("Assets/hero3_resisez2.jpg");
     background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center -300px;
     background-blend-mode: multiply;
     border-bottom: 1px solid var(--border-color);
 }
@@ -175,7 +177,7 @@ body {
     
 }
 
-.primary-CTA, .secondary-CTA{
+.primary-CTA{
     background-color: var(--accent-orange);
     color: var(--bg-color);
     border: none;
@@ -183,15 +185,32 @@ body {
     border-radius: 8px;
     font-size: 18px;
     font-weight: 600;
-    /* border-bottom: 1px solid var(--border-color); */
-    box-shadow: 1px 1px 5px 0px var(--accent-orange);
+    /* border: 2px solid var(--bg-color); */
+    /* box-shadow: 1px 1px 5px 0px var(--accent-orange); */
     cursor: pointer;
     transition: background-color var(--transition), color var(--transition);
 }
-
-.primary-CTA:hover, .secondary-CTA:hover{
+.primary-CTA:hover{
     background-color: var(--accent-hover);
 }
+
+.secondary-CTA{
+    padding: 12px 30px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--accent-orange);
+    color: var(--accent-orange);
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    /* box-shadow: 1px 1px 5px 0px var(--accent-orange); */
+    transition: background-color var(--transition), color var(--transition);
+}
+.secondary-CTA:hover{
+    background-color: var(--accent-orange);
+    color: var(--bg-color);
+}
+
 
 .trust-lines{
     text-align: center;
