@@ -120,11 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
   ======================== */
 
   document.querySelector('.nav-item.login')?.addEventListener('click', () => {
-    window.location.href = 'Pages/login_signup.html?mode=login';
+    window.location.href = '../PAGES/login_signup.html?mode=login';
   });
 
   document.querySelector('.signup-btn')?.addEventListener('click', () => {
-    window.location.href = 'Pages/login_signup.html?mode=signup';
+    window.location.href = '../PAGES/login_signup.html?mode=signup';
   });
 
   /* =======================
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ======================== */
 
   document.querySelector('.primary-CTA')?.addEventListener('click', () => {
-    window.location.href = '/Pages/notes.html';
+    window.location.href = '../PAGES/notes.html';
   });
 
   /* =======================
@@ -159,11 +159,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   resultBox?.addEventListener('click', (e) => {
     if (e.target.closest('.browse')) {
-      window.location.href = '/Pages/notes.html';
+      window.location.href = '../PAGES/notes.html';
     }
 
     if (e.target.closest('.upload')) {
-      window.location.href = '/Pages/notes.html?mode=upload';
+      window.location.href = '../PAGES/notes.html?mode=upload';
     }
   });
 
@@ -176,7 +176,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeUpload = document.getElementById('closeUpload');
 
   uploadBtn?.addEventListener('click', () => {
+    window.location.href = "../PAGES/notes.html?mode=upload";
     uploadModal.style.display = 'flex';
+    console.log('Upload Modal Opened');
   });
 
   closeUpload?.addEventListener('click', () => {

@@ -131,13 +131,13 @@ body {
   transition: color 0.2s ease;
 }
 
+.nav-item.login {
+  color: var(--text-medium-lite);
+}
 .nav-item:hover {
   color: var(--accent-orange);
 }
 
-.nav-item.login {
-  color: var(--text-medium-lite);
-}
 
 .signup-btn {
   padding: 8px 18px;
@@ -213,7 +213,7 @@ body {
   padding: 0 20px;
   text-align: center;
 
-  background: url("./Assets/hero1.jpg") center / cover no-repeat;
+  background: url("../Assets/hero1.jpg") center / cover no-repeat;
   overflow: hidden;
 }
 
@@ -224,8 +224,8 @@ body {
 
   background: inherit;
   transform: scale(1.1); /* prevents edge clipping */
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(1px);
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
 
   z-index: 0;
 }
