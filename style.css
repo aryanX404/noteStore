@@ -437,6 +437,8 @@ body {
 .browse, .upload{
     font-size: 18px;
     font-weight: 600;
+    text-decoration: underline;
+    border-radius: 8px;
     color: var(--accent-orange);
     cursor: pointer;
     font-family: var(--font-family-primary);

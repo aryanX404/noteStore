@@ -211,7 +211,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const sellNotesNav = document.querySelector('.nav-item.sell-notes');  
   sellNotesNav.addEventListener('click', () => {
-    window.location.href = '/Pages/notes.html?mode=upload';
+    loadContributerSteps();
+    learnerButton.classList.remove('active');
+    contributorButton.classList.add('active');
+    window.location.href = '#working';
   });
 
 });
