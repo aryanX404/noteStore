@@ -12,17 +12,31 @@
     <div class="primary-container">
         <div class="navbar">
             <div class="nav-left">
-                <div class="logo "><img src="Assets/logo2.png" alt="noteStore"></div>
+                <div class="logo ">
+                    <p><span class="l1">note</span><span class="l2">Store</span></p>
+                </div>
             </div>
             <div class="nav-right">
                 <div class="nav-list">
-                    <div class="nav-item ">Study tools</div>
-                    <div class="nav-item ">Sell Notes</div>
-                    <div class="nav-item ">Login</div>
+                    <div class="nav-item study-tools">Study tools</div>
+                    <div class="nav-item sell-notes">Sell Notes</div>
+                    <div class="nav-item login">Login</div>
                 </div>
                 <div class="signup">
                     <div class="signup-btn ">Sign Up</div>
                 </div>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="mobile-menu" id="mobileMenu">
+                    <a href="#">Study Tools</a>
+                    <a href="#">Sell Notes</a>
+                    <a href="/Pages/login_signup.html?mode=login">Login</a>
+                    <a class="mobile-signup" href="/Pages/login_signup.html?mode=signup">Sign Up</a>
+                </div>
+
             </div>
             
         </div>
@@ -79,7 +93,7 @@
             </div>
             <div class="result">
                 <p class="outcome">Instant access • One-time payment • No subscriptions <span></p>
-                <p class="browse">Browse<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
+                <p class="browse note">Browse<i class="fa-solid fa-arrow-up-right-from-square"></i></p>
             </div>
         </div>
 
@@ -174,7 +188,7 @@
             </div>
 
             <div class="browse-all">
-                <a href="/notes" class="browse-link">
+                <a href="/Pages/notes.html" class="browse-link">
                     Browse all notes →
                 </a>
             </div>
@@ -331,8 +345,8 @@
                 <div class="footer-links">
                     <h4>Explore</h4>
                     <ul>
-                        <li><a href="/notes">Browse Notes</a></li>
-                        <li><a href="/upload">Upload Notes</a></li>
+                        <li><a href="/Pages/notes.html">Browse Notes</a></li>
+                        <li><a href="/Pages/notes.html?mode=upload">Upload Notes</a></li>
                         <li><a href="#faq">FAQs</a></li>
                     </ul>
                 </div>
@@ -358,6 +372,49 @@
 
 
 
+        <!-- Upload Notes Modal -->
+        <div class="modal-overlay" id="uploadModal">
+        <div class="modal-box">
+
+            <div class="modal-header">
+            <h3>Upload Notes</h3>
+            <span class="close-modal" id="closeUpload">&times;</span>
+            </div>
+
+            <form class="upload-form">
+
+                <div class="form-group">
+                    <label>Subject</label>
+                    <input type="text" placeholder="Thermodynamics">
+                </div>
+
+                <div class="form-group">
+                    <label>Semester</label>
+                    <input type="text" placeholder="Semester 3">
+                </div>
+
+                <div class="form-group">
+                <label>Upload PDF</label>
+
+                    <label class="file-upload-box">
+                        <input type="file" id="pdfUpload" accept=".pdf" hidden />
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <span class="upload-text">Click to upload PDF</span>
+                        <span class="file-name">No file selected</span>
+                    </label>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Price (₹)</label>
+                    <input type="number" placeholder="e.g. 99">
+                </div>
+
+                <button type="submit" class="primary-upload-CTA">Upload Notes</button>
+
+            </form>
+        </div>
+        </div>
 
     </div>
     <script src="script.js"></script>

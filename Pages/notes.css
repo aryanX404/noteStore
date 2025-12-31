@@ -1,0 +1,139 @@
+.notes-page {
+  padding: 80px 6%;
+  background: var(--bg-color);
+  color: var(--text-high);
+}
+
+/* Header */
+.notes-header {
+  margin-bottom: 32px;
+  display: flex;
+    justify-content: space-between;
+}
+
+.notes-header h1 {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.upload-note-btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent-orange);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.notes-header p {
+  color: var(--text-medium);
+}
+
+/* Filters */
+.notes-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.notes-filters input,
+.notes-filters select {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--surface-color);
+  color: var(--text-high);
+}
+
+.notes-filters input {
+  flex: 1;
+  min-width: 220px;
+}
+
+/* Grid */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Card */
+.note-card {
+  background: var(--surface-color);
+  border-radius: 16px;
+  padding: 18px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.note-card:hover {
+  background: var(--surface-hover);
+  transform: translateY(-4px);
+}
+
+.note-top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-orange);
+}
+
+/* Content */
+.note-card h3 {
+  margin: 12px 0 6px;
+  font-size: 18px;
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--text-medium);
+}
+
+/* Stats */
+.note-stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0;
+  font-size: 13px;
+  color: var(--text-medium);
+}
+
+/* Footer */
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-footer span{
+    font-size: 14px;
+    color: var(--text-medium);
+    margin-right: 10px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent-orange);
+}
+
+.buy-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent-orange);
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  background: var(--accent-hover);
+}
