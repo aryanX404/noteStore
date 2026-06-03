@@ -19,75 +19,57 @@
             <p>High-quality notes shared by top-performing students.</p>
         </div>
         <div class="notes-header-right">
-            <button class="upload-note-btn">Upload Note</button>    
+
+            <button class="upload-note-btn">
+                Upload Note
+            </button>
+
+            <button id="logoutBtn">
+                Logout
+            </button>
+
         </div>
     </div>
 
     <!-- Filters -->
     <div class="notes-filters">
-        <input type="text" placeholder="Search subject or keyword">
 
-        <select>
-        <option>All Semesters</option>
-        <option>Semester 1</option>
-        <option>Semester 2</option>
-        <option>Semester 3</option>
-        <option>Semester 4</option>
-        <option>Semester 5</option>
-        <option>Semester 6</option>
-        <option>Semester 7</option>
-        <option>Semester 8</option>
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search subject or keyword"
+        >
+
+        <select id="semesterFilter">
+
+            <option value="all">
+                All Semesters
+            </option>
+
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+            <option value="7">Semester 7</option>
+            <option value="8">Semester 8</option>
+
         </select>
 
-        <select>
-        <option>All Subjects</option>
-        <option>Thermodynamics</option>
-        <option>Fluid Mechanics</option>
-        <option>Robotics</option>
+        <select id="subjectFilter">
+
+            <option value="all">
+                All Subjects
+            </option>
+
         </select>
+
     </div>
 
     <!-- Notes Grid -->
-    <div class="notes-grid">
+    <div class="notes-grid" id="notesGrid">
 
-        <div class="note-card">
-            <div class="note-top">
-                <span class="tag">PDF</span>
-            </div>
-
-            <h3>Engineering Mathematics II</h3>
-            <p class="meta">Mechanical • Semester 2</p>
-
-            <div class="note-stats">
-                <span>⭐ 4.6</span>
-                <span>120 downloads</span>
-            </div>
-
-            <div class="note-footer">
-                <span class="price">₹99</span>
-                <button class="buy-btn">View</button>
-            </div>
-        </div>
-        
-        <!-- duplicate cards -->
-        <div class="note-card">
-            <div class="note-top">
-                <span class="tag">PDF</span>
-            </div>
-
-            <h3>Engineering Mathematics II</h3>
-            <p class="meta">Mechanical • Semester 2</p>
-
-            <div class="note-stats">
-                <span>⭐ 4.6</span>
-                <span>120 downloads</span>
-            </div>
-
-            <div class="note-footer">
-                <span class="price">₹99 </span>
-                <button class="buy-btn">View</button>
-            </div>
-        </div>
 
     </div>
 
@@ -102,35 +84,41 @@
             <span class="close-modal" id="closeUpload">&times;</span>
             </div>
 
-            <form class="upload-form">
+            <form class="upload-form" id="uploadForm">
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="title" placeholder="Engineering Mathematics II">
+                </div>
 
                 <div class="form-group">
                     <label>Subject</label>
-                    <input type="text" placeholder="Thermodynamics">
+                    <input type="text" id="subject" placeholder="Mathematics">
                 </div>
 
                 <div class="form-group">
                     <label>Semester</label>
-                    <input type="text" placeholder="Semester 3">
+                    <input type="number" id="semester" placeholder="2">
                 </div>
 
                 <div class="form-group">
-                <label>Upload PDF</label>
-
-                    <label class="file-upload-box">
-                        <input type="file" id="pdfUpload" accept=".pdf" hidden />
-                        <i class="fa-solid fa-file-pdf"></i>
-                        <span class="upload-text">Click to upload PDF</span>
-                        <span class="file-name">No file selected</span>
-                    </label>
+                    <label>Description</label>
+                    <textarea id="description" rows="4"
+                        placeholder="Complete handwritten notes"></textarea>
                 </div>
-
 
                 <div class="form-group">
                     <label>Price (₹)</label>
-                    <input type="number" placeholder="99">
+                    <input type="number" id="price" placeholder="99">
                 </div>
-
+                <div class="form-group">
+                    <label>PDF File</label>
+                    <input
+                        type="file"
+                        id="pdf"
+                        accept=".pdf"
+                    >
+                </div>
                 <button type="submit" class="primary-upload-CTA">Upload Notes</button>
 
             </form>
