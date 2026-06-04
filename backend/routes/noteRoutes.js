@@ -7,7 +7,8 @@ const upload = require("../middleware/uploadMiddleware");
 const {
     createNote,
     getAllNotes,
-    deleteNote
+    deleteNote,
+    updateNote
 } = require("../controllers/noteController");
 
 router.post(
@@ -18,6 +19,13 @@ router.post(
 );
 
 router.get("/", getAllNotes);
+
+router.put(
+    "/:id",
+    protect,
+    upload.single("pdf"),
+    updateNote
+);
 
 router.delete("/:id", protect, deleteNote);
 

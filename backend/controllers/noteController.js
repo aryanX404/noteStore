@@ -136,8 +136,84 @@ const deleteNote = async (req, res) => {
 
 };
 
+const updateNote = async (req, res) => {
+
+    try {
+
+        const note = await Note.findById(
+            req.params.id
+        );
+
+        if (!note) {
+
+            return res.status(404).json({
+                message: "Note not found"
+            });
+
+        }
+
+        if (
+            note.uploader.toString() !==
+            req.user.userId
+        ) {
+
+            return res.status(403).json({
+                message:
+                    "Not authorized"
+            });
+
+        }
+
+        const {
+            title,
+            subject,
+            semester,
+            description,
+            price
+        } = req.body;
+
+        note.title =
+            title || note.title;
+
+        note.subject =
+            subject || note.subject;
+
+        note.semester =
+            semester || note.semester;
+
+        note.description =
+            description || note.description;
+
+        note.price =
+            price || note.price;
+
+        await note.save();
+
+        res.status(200).json({
+
+            message:
+                "Note updated successfully",
+
+            note
+
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+
+            message:
+                error.message
+
+        });
+
+    }
+
+};
+
 module.exports = {
     createNote,
     getAllNotes,
-    deleteNote
+    deleteNote,
+    updateNote
 };

@@ -13,6 +13,10 @@ const logoutBtn =document.getElementById("logoutBtn");
 const searchInput = document.getElementById("searchInput");
 const semesterFilter = document.getElementById("semesterFilter");
 const subjectFilter = document.getElementById("subjectFilter");
+const modalTitle =document.getElementById("modalTitle");
+
+const submitBtn =document.getElementById("submitBtn");
+console.log(submitBtn);
 
 const token = localStorage.getItem("token");
 
@@ -22,6 +26,7 @@ if (!token) {
 }
 
 let allNotes = [];
+let editingNoteId = null;
 
 const currentUserId = localStorage.getItem("userId");
 
@@ -58,6 +63,15 @@ if (mode === "upload") {
 
 closeUpload.addEventListener('click', () => {
     uploadModal.style.display = 'none';
+    editingNoteId = null;
+
+    uploadForm.reset();
+
+    modalTitle.textContent =
+        "Upload Notes";
+
+    submitBtn.textContent =
+        "Upload Notes";
 });
 
 uploadForm.addEventListener("submit", async (e) => {
@@ -112,10 +126,24 @@ uploadForm.addEventListener("submit", async (e) => {
 
         }
 
+        let url =
+            "http://localhost:5000/api/notes";
+
+        let method = "POST";
+
+        if (editingNoteId) {
+
+            url =
+                `http://localhost:5000/api/notes/${editingNoteId}`;
+
+            method = "PUT";
+
+        }
+
         const response = await fetch(
-            "http://localhost:5000/api/notes",
+            url,
             {
-                method: "POST",
+                method,
 
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -137,12 +165,22 @@ uploadForm.addEventListener("submit", async (e) => {
 
         uploadModal.style.display = "none";
 
+        
+        editingNoteId = null;
         uploadForm.reset();
+
+        modalTitle.textContent =
+            "Upload Notes";
+
+        submitBtn.textContent =
+            "Upload Notes";
 
         await fetchNotes();
 
         alert(
-            "Note uploaded successfully"
+            method === "POST"
+                ? "Note uploaded successfully"
+                : "Note updated successfully"
         );
 
     } catch (error) {
@@ -219,6 +257,12 @@ function renderNotes(notes) {
 
                         `
                         <button
+                            class="edit-btn"
+                            data-id="${note._id}"
+                        >
+                            Edit
+                        </button>
+                        <button
                             class="delete-btn"
                             data-id="${note._id}"
                         >
@@ -243,6 +287,64 @@ function renderNotes(notes) {
 
     attachDeleteListeners();
     attachViewListeners();
+    attachEditListeners();
+}
+
+function attachEditListeners() {
+
+    document
+        .querySelectorAll(".edit-btn")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const noteId =
+                        button.dataset.id;
+
+                    const note =
+                        allNotes.find(
+                            n =>
+                                n._id === noteId
+                        );
+
+                    if (!note) return;
+
+                    editingNoteId =
+                        note._id;
+
+                    console.log("Changing button text");
+
+                    modalTitle.textContent =
+                        "Update Note";
+
+                    submitBtn.textContent =
+                        "Update Note";
+
+                    titleInput.value =
+                        note.title;
+
+                    subjectInput.value =
+                        note.subject;
+
+                    semesterInput.value =
+                        note.semester;
+
+                    descriptionInput.value =
+                        note.description;
+
+                    priceInput.value =
+                        note.price;
+
+                    uploadModal.style.display =
+                        "flex";
+
+                }
+            );
+
+        });
+
 }
 
 function attachDeleteListeners() {
