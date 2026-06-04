@@ -1,6 +1,8 @@
 const Note = require("../models/Note");
 const fs = require("fs");
 const path = require("path");
+const createPreviewPDF = require("../utils/createPreview");
+
 const createNote = async (req, res) => {
 
     try {
@@ -12,6 +14,31 @@ const createNote = async (req, res) => {
             price,
             description
         } = req.body;
+
+        const originalFilePath =
+            path.join(
+                __dirname,
+                "..",
+                "uploads",
+                req.file.filename
+            );
+
+        const previewFileName =
+            `preview_${req.file.filename}`;
+
+        const previewFilePath =
+            path.join(
+                __dirname,
+                "..",
+                "uploads",
+                "previews",
+                previewFileName
+            );
+
+        await createPreviewPDF(
+            originalFilePath,
+            previewFilePath
+        );
 
         const note = await Note.create({
 
@@ -25,6 +52,7 @@ const createNote = async (req, res) => {
                 ? req.file.filename
                 : null,
 
+            previewFile: previewFileName,
             uploader: req.user.userId
 
         });
@@ -65,6 +93,92 @@ const getAllNotes = async (req, res) => {
         });
 
     }
+};
+
+
+const getProtectedPDF = async (req, res) => {
+
+    try {
+
+        const note =
+            await Note.findById(
+                req.params.id
+            );
+
+        if (!note) {
+
+            return res
+                .status(404)
+                .json({
+                    message:
+                        "Note not found"
+                });
+
+        }
+
+        const pdfPath =
+            path.join(
+                __dirname,
+                "..",
+                "uploads",
+                note.pdfFile
+            );
+
+        res.sendFile(pdfPath);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message:
+                error.message
+        });
+
+    }
+
+};
+
+const getPreviewPDF = async (req, res) => {
+
+    try {
+
+        const note =
+            await Note.findById(
+                req.params.id
+            );
+
+        if (!note) {
+
+            return res
+                .status(404)
+                .json({
+                    message:
+                        "Note not found"
+                });
+
+        }
+
+        const previewPath =
+            path.join(
+                __dirname,
+                "..",
+                "uploads",
+                "previews",
+                note.previewFile
+            );
+
+        res.sendFile(
+            previewPath
+        );
+
+    } catch (error) {
+
+        res.status(500).json({
+            message:
+                error.message
+        });
+
+    }
+
 };
 
 const deleteNote = async (req, res) => {
@@ -253,10 +367,97 @@ const incrementViews = async (
 
 };
 
+const incrementDownloads = async (
+    req,
+    res
+) => {
+
+    try {
+
+        const note =
+            await Note.findById(
+                req.params.id
+            );
+
+        if (!note) {
+
+            return res
+                .status(404)
+                .json({
+                    message:
+                        "Note not found"
+                });
+
+        }
+
+        note.downloads =
+            (note.downloads || 0) + 1;
+
+        await note.save();
+
+        res.status(200).json({
+            downloads:
+                note.downloads
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            message:
+                error.message
+        });
+
+    }
+
+};
+
+const getNoteById = async (
+    req,
+    res
+) => {
+
+    try {
+
+        const note =
+            await Note.findById(
+                req.params.id
+            ).populate(
+                "uploader",
+                "name email"
+            );
+
+        if (!note) {
+
+            return res
+                .status(404)
+                .json({
+                    message:
+                        "Note not found"
+                });
+
+        }
+
+        res.status(200).json(note);
+
+    } catch (error) {
+
+        res.status(500).json({
+            message:
+                error.message
+        });
+
+    }
+
+};
+
 module.exports = {
     createNote,
     getAllNotes,
     deleteNote,
+    getNoteById,
     updateNote,
-    incrementViews
+    incrementViews,
+    getPreviewPDF,
+    incrementDownloads,
+    getProtectedPDF
 };

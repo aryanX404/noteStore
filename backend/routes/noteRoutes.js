@@ -9,7 +9,11 @@ const {
     getAllNotes,
     deleteNote,
     updateNote,
-    incrementViews
+    getNoteById,
+    incrementViews,
+    incrementDownloads,
+    getPreviewPDF,
+    getProtectedPDF
 } = require("../controllers/noteController");
 
 router.post(
@@ -19,7 +23,23 @@ router.post(
     createNote
 );
 
+router.get(
+    "/:id/pdf",
+    // protect,
+    getProtectedPDF
+);
+
+router.get(
+    "/:id/preview",
+    getPreviewPDF
+);
+
 router.get("/", getAllNotes);
+
+router.get(
+    "/:id",
+    getNoteById
+);
 
 router.put(
     "/:id",
@@ -31,6 +51,11 @@ router.put(
 router.put(
     "/:id/view",
     incrementViews
+);
+
+router.put(
+    "/:id/download",
+    incrementDownloads
 );
 
 router.delete("/:id", protect, deleteNote);

@@ -17,9 +17,9 @@
   
   /* Accent Color (for high conversion) */
   /* --accent-orange:#006d77; */
-  --accent-orange: #f59e0b;    /* CTA buttons (Buy, Download PYQs) */
+  --accent-orange: #f59f0bce;    /* CTA buttons (Buy, Download PYQs) */
   --accent-orange-lite: #f59f0bbb;    /* lighter version CTA buttons (Buy, Download PYQs) */
-  --accent-hover: #d97706;
+  --accent-hover: #ce7106be;
 
   /* Typography */
   --text-high: #e5e7eb;        /* Main headings */
@@ -45,6 +45,8 @@
 .b{
   border: 1px solid;
 }
+
+
 
 body {
   margin: 0;
@@ -225,7 +227,7 @@ body {
   background: inherit;
   transform: scale(1.1); /* prevents edge clipping */
   background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(5px);
 
   z-index: 0;
 }

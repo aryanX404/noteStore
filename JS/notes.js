@@ -20,7 +20,7 @@ const myNotesBtn =document.getElementById("myNotesBtn");
 const welcomeUser = document.getElementById("welcomeUser");
 const uploadCount =document.getElementById("uploadCount");
 const totalViews =document.getElementById("totalViews");
-const averageViews =document.getElementById("averageViews");
+const downloadCount =document.getElementById("downloadCount");
 const earnings =document.getElementById("earnings");
 
 let showMyNotes = false;
@@ -303,11 +303,10 @@ function renderNotes(notes) {
                 <div class="card-actions">
 
                     <button
-                        class="buy-btn"
-                        data-file="${note.pdfFile || ""}"
+                        class="details-btn"
                         data-id="${note._id}"
                     >
-                        View
+                        Details
                     </button>
 
                     
@@ -375,23 +374,23 @@ function updateDashboard() {
     totalViews.textContent =
         views;
 
-    const avgViews =
-        myNotes.length > 0
-            ? (
-                views /
-                myNotes.length
-            ).toFixed(1)
-            : 0;
+    const downloads =
+        myNotes.reduce(
+            (total, note) =>
+                total +
+                (note.downloads || 0),
+            0
+        );
 
-    averageViews.textContent =
-        avgViews;
+    downloadCount.textContent =
+        downloads;
 
     const totalEarnings =
         myNotes.reduce(
             (total, note) =>
                 total +
                 (
-                    (note.views || 0)
+                    (note.downloads || 0)
                     *
                     (note.price || 0)
                 ),
@@ -533,39 +532,18 @@ function attachDeleteListeners() {
 function attachViewListeners() {
 
     document
-        .querySelectorAll(".buy-btn")
+        .querySelectorAll(".details-btn")
         .forEach(button => {
 
             button.addEventListener(
                 "click",
-                async () => {
+                () => {
 
-                    const file =
-                        button.dataset.file;
+                    const noteId =
+                        button.dataset.id;
 
-                    if (!file) {
-
-                        alert(
-                            "PDF not uploaded yet"
-                        );
-
-                        return;
-
-                    }
-
-                    await fetch(
-                        `http://localhost:5000/api/notes/${button.dataset.id}/view`,
-                        {
-                            method: "PUT"
-                        }
-                    );
-
-                    await fetchNotes();
-
-                    window.open(
-                        `http://localhost:5000/uploads/${file}`,
-                        "_blank"
-                    );
+                    window.location.href =
+                        `note-details.html?id=${noteId}`;
 
                 }
             );

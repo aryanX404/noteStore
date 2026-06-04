@@ -1,3 +1,66 @@
+const token = localStorage.getItem("token");
+
+const loginBtn =
+    document.querySelector(".nav-item.login");
+
+const signupContainer =
+    document.querySelector(".signup");
+
+const navList =
+    document.querySelector(".nav-list");
+
+if (token) {
+
+    loginBtn.style.display = "none";
+
+    signupContainer.style.display = "none";
+
+    navList.insertAdjacentHTML(
+        "beforeend",
+        `
+        <div
+            class="nav-item dashboard-link"
+        >
+            Dashboard
+        </div>
+
+        <div
+            class="nav-item logout-link"
+        >
+            Logout
+        </div>
+        `
+    );
+
+    document
+        .querySelector(".dashboard-link")
+        .addEventListener(
+            "click",
+            () => {
+
+                window.location.href =
+                    "../Pages/notes.html";
+
+            }
+        );
+
+    document
+        .querySelector(".logout-link")
+        .addEventListener(
+            "click",
+            () => {
+
+                localStorage.removeItem(
+                    "token"
+                );
+
+                window.location.reload();
+
+            }
+        );
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
 
   /* =======================
@@ -175,11 +238,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const uploadModal = document.getElementById('uploadModal');
   const closeUpload = document.getElementById('closeUpload');
 
-  uploadBtn?.addEventListener('click', () => {
-    window.location.href = "../Pages/notes.html?mode=upload";
-    uploadModal.style.display = 'flex';
-    console.log('Upload Modal Opened');
-  });
+  uploadBtn?.addEventListener(
+      'click',
+      () => {
+
+          const token =
+              localStorage.getItem(
+                  "token"
+              );
+
+          if (!token) {
+
+              window.location.href =
+                  "../Pages/login_signup.html?mode=login";
+
+              return;
+
+          }
+
+          window.location.href =
+              "../Pages/notes.html?mode=upload";
+
+      }
+  );
 
   closeUpload?.addEventListener('click', () => {
     uploadModal.style.display = 'none';
