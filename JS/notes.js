@@ -14,11 +14,28 @@ const searchInput = document.getElementById("searchInput");
 const semesterFilter = document.getElementById("semesterFilter");
 const subjectFilter = document.getElementById("subjectFilter");
 const modalTitle =document.getElementById("modalTitle");
-
 const submitBtn =document.getElementById("submitBtn");
-console.log(submitBtn);
+const allNotesBtn =document.getElementById("allNotesBtn");
+const myNotesBtn =document.getElementById("myNotesBtn");
+const welcomeUser = document.getElementById("welcomeUser");
+
+let showMyNotes = false;
 
 const token = localStorage.getItem("token");
+const currentUserName =
+    localStorage.getItem(
+        "userName"
+    );
+
+if (
+    currentUserName &&
+    welcomeUser
+) {
+
+    welcomeUser.textContent =
+        `Welcome, ${currentUserName} 👋`;
+
+}
 
 if (!token) {
     window.location.href =
@@ -30,6 +47,43 @@ let editingNoteId = null;
 
 const currentUserId = localStorage.getItem("userId");
 
+allNotesBtn.addEventListener(
+    "click",
+    () => {
+
+        showMyNotes = false;
+
+        allNotesBtn.classList.add(
+            "active"
+        );
+
+        myNotesBtn.classList.remove(
+            "active"
+        );
+
+        applyFilters();
+
+    }
+);
+
+myNotesBtn.addEventListener(
+    "click",
+    () => {
+
+        showMyNotes = true;
+
+        myNotesBtn.classList.add(
+            "active"
+        );
+
+        allNotesBtn.classList.remove(
+            "active"
+        );
+
+        applyFilters();
+
+    }
+);
 
 logoutBtn.addEventListener(
     "click",
@@ -231,6 +285,9 @@ function renderNotes(notes) {
                 <span>
                     👤 ${note.uploader?.name || "Unknown"}
                 </span>
+                <span>
+                    👁️ ${note.views || 0}
+                </span>
             </div>
 
             <div class="note-footer">
@@ -244,6 +301,7 @@ function renderNotes(notes) {
                     <button
                         class="buy-btn"
                         data-file="${note.pdfFile || ""}"
+                        data-id="${note._id}"
                     >
                         View
                     </button>
@@ -425,7 +483,7 @@ function attachViewListeners() {
 
             button.addEventListener(
                 "click",
-                () => {
+                async () => {
 
                     const file =
                         button.dataset.file;
@@ -439,6 +497,15 @@ function attachViewListeners() {
                         return;
 
                     }
+
+                    await fetch(
+                        `http://localhost:5000/api/notes/${button.dataset.id}/view`,
+                        {
+                            method: "PUT"
+                        }
+                    );
+
+                    await fetchNotes();
 
                     window.open(
                         `http://localhost:5000/uploads/${file}`,
@@ -545,7 +612,7 @@ function applyFilters() {
     const subjectValue =
         subjectFilter.value;
 
-    const filteredNotes =
+    let filteredNotes =
         allNotes.filter(note => {
 
             const matchesSearch =
@@ -589,6 +656,15 @@ function applyFilters() {
             );
 
         });
+
+    if (showMyNotes) {
+        filteredNotes =
+            filteredNotes.filter(
+                note =>
+                    note.uploader?._id ===
+                    currentUserId
+            );
+    }
 
     renderNotes(filteredNotes);
 

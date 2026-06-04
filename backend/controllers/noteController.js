@@ -211,9 +211,52 @@ const updateNote = async (req, res) => {
 
 };
 
+const incrementViews = async (
+    req,
+    res
+) => {
+
+    try {
+
+        const note =
+            await Note.findById(
+                req.params.id
+            );
+
+        if (!note) {
+
+            return res
+                .status(404)
+                .json({
+                    message:
+                        "Note not found"
+                });
+
+        }
+
+        note.views += 1;
+
+        await note.save();
+
+        res.status(200).json({
+            views: note.views
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            message:
+                error.message
+        });
+
+    }
+
+};
+
 module.exports = {
     createNote,
     getAllNotes,
     deleteNote,
-    updateNote
+    updateNote,
+    incrementViews
 };

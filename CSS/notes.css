@@ -220,6 +220,49 @@
     gap:10px;
 }
 
+.notes-toggle {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.user-info {
+
+    display: flex;
+    align-items: center;
+
+    font-weight: 600;
+
+    color: var(--text-high);
+
+}
+
+#welcomeUser {
+
+    padding: 10px 14px;
+
+    background: var(--surface-color);
+
+    border-radius: 10px;
+
+}
+
+.toggle-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background: var(--surface-color);
+    color: var(--text-high);
+}
+
+.toggle-btn.active {
+    background: var(--accent-orange);
+    color: black;
+    font-weight: 600;
+}
+
 .delete-btn{
     padding:10px 18px;
 

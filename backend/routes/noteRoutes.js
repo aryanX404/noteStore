@@ -8,7 +8,8 @@ const {
     createNote,
     getAllNotes,
     deleteNote,
-    updateNote
+    updateNote,
+    incrementViews
 } = require("../controllers/noteController");
 
 router.post(
@@ -25,6 +26,11 @@ router.put(
     protect,
     upload.single("pdf"),
     updateNote
+);
+
+router.put(
+    "/:id/view",
+    incrementViews
 );
 
 router.delete("/:id", protect, deleteNote);
