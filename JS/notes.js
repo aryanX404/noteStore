@@ -18,6 +18,10 @@ const submitBtn =document.getElementById("submitBtn");
 const allNotesBtn =document.getElementById("allNotesBtn");
 const myNotesBtn =document.getElementById("myNotesBtn");
 const welcomeUser = document.getElementById("welcomeUser");
+const uploadCount =document.getElementById("uploadCount");
+const totalViews =document.getElementById("totalViews");
+const averageViews =document.getElementById("averageViews");
+const earnings =document.getElementById("earnings");
 
 let showMyNotes = false;
 
@@ -348,6 +352,57 @@ function renderNotes(notes) {
     attachEditListeners();
 }
 
+function updateDashboard() {
+
+    const myNotes =
+        allNotes.filter(
+            note =>
+                note.uploader?._id ===
+                currentUserId
+        );
+
+    uploadCount.textContent =
+        myNotes.length;
+
+    const views =
+        myNotes.reduce(
+            (total, note) =>
+                total +
+                (note.views || 0),
+            0
+        );
+
+    totalViews.textContent =
+        views;
+
+    const avgViews =
+        myNotes.length > 0
+            ? (
+                views /
+                myNotes.length
+            ).toFixed(1)
+            : 0;
+
+    averageViews.textContent =
+        avgViews;
+
+    const totalEarnings =
+        myNotes.reduce(
+            (total, note) =>
+                total +
+                (
+                    (note.views || 0)
+                    *
+                    (note.price || 0)
+                ),
+            0
+        );
+
+    earnings.textContent =
+        `₹${totalEarnings}`;
+
+}
+
 function attachEditListeners() {
 
     document
@@ -566,6 +621,7 @@ async function fetchNotes() {
         allNotes = await response.json();
 
         populateSubjectFilter();
+        updateDashboard();
 
         renderNotes(allNotes);
 
