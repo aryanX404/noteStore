@@ -1,0 +1,658 @@
+@media (max-width: 992px) {
+
+    .hero-title {
+
+        font-size: 3rem;
+
+    }
+
+    .title-slogan {
+
+        font-size: 1rem;
+
+    }
+
+    .working,
+    .featured-notes,
+    .trust-section,
+    .audience-section,
+    .faq-section {
+
+        padding: 70px 20px;
+
+    }
+
+    .legal-page {
+
+        padding: 70px 24px;
+
+    }
+
+    .legal-container {
+
+        max-width: 100%;
+
+    }
+
+    .note-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .note-title {
+        font-size: 2.2rem;
+    }
+    .note-sidebar {
+        flex-direction: row;
+        align-items: stretch;
+    }
+    .stats-card,
+    .action-card {
+        flex: 1;
+    }
+
+    .auth-container {
+        max-width: 800px;
+        margin: 20px;
+    }
+    .auth-info,
+    .auth-card {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        padding: 0 16px;
+
+        height: 60px;
+
+    }
+
+    .logo p {
+
+        font-size: 18px;
+
+    }
+
+    .hero-section {
+
+        min-height: 85vh;
+
+        padding: 0 16px;
+
+    }
+
+    .hero-title {
+
+        font-size: 2.5rem;
+
+    }
+
+    .title-slogan {
+
+        font-size: 0.95rem;
+
+    }
+
+    .CTA-btn {
+
+        gap: 12px;
+
+    }
+
+    .primary-CTA,
+    .secondary-CTA {
+
+        padding: 12px 22px;
+
+        font-size: 0.95rem;
+
+    }
+
+    .trust-lines {
+
+        gap: 12px;
+
+        font-size: 0.85rem;
+
+    }
+
+    .detail-title {
+
+        font-size: 24px;
+
+    }
+
+    .step-card {
+
+        padding: 18px;
+
+    }
+
+    .section-header h2 {
+
+        font-size: 1.8rem;
+
+    }
+
+
+    .legal-page {
+
+        padding: 60px 20px;
+
+    }
+
+    .legal-container h1 {
+
+        font-size: 2rem;
+
+        line-height: 1.2;
+
+    }
+
+    .legal-container h2 {
+
+        font-size: 1.2rem;
+
+    }
+
+    .legal-container p,
+    .legal-container li {
+
+        font-size: 0.92rem;
+
+        line-height: 1.65;
+
+    }
+
+    .note-details {
+        padding: 30px 18px;
+    }
+    .note-main {
+        padding: 24px;
+    }
+    .note-title {
+        font-size: 1.9rem;
+        line-height: 1.2;
+    }
+    .note-meta {
+        gap: 10px;
+    }
+    .note-badge {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+    .pdf-preview iframe {
+        height: 400px;
+    }
+    .note-sidebar {
+        flex-direction: column;
+    }
+    .auth-page {
+        padding: 20px;
+    }
+    .auth-container {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        border-radius: 18px;
+    }
+    .auth-info {
+        padding: 32px;
+        text-align: center;
+        align-items: center;
+    }
+    .logo {
+        margin: 0 auto;
+    }
+    .logo-subtext {
+        text-align: center;
+    }
+    .auth-info h1 {
+        font-size: 1.8rem;
+    }
+    .auth-card {
+        padding: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .note-details {
+        padding: 20px 12px;
+    }
+    .note-main,
+    .stats-card,
+    .action-card {
+        padding: 18px;
+        border-radius: 16px;
+    }
+    .hero-badge {
+        font-size: 13px;
+
+        padding: 6px 12px;
+
+        margin-bottom: 14px;
+
+    }
+
+    .note-title {
+
+        font-size: 1.6rem;
+
+    }
+
+    .note-description {
+
+        padding: 14px;
+
+        font-size: 0.9rem;
+
+    }
+
+    .stat {
+
+        font-size: 0.9rem;
+
+    }
+
+    .primary-btn,
+    .secondary-btn {
+
+        padding: 12px;
+
+        font-size: 0.9rem;
+
+    }
+
+    .pdf-preview {
+
+        margin-top: 24px;
+
+    }
+
+    .section-title {
+
+        margin-top: 24px;
+
+        margin-bottom: 12px;
+
+    }
+
+    .pdf-preview iframe {
+
+        height: 320px;
+
+        border-radius: 12px;
+
+    }
+
+
+    .legal-page {
+
+        padding: 50px 16px;
+
+    }
+
+    .legal-container h1 {
+
+        font-size: 1.7rem;
+
+    }
+
+    .legal-container .updated {
+
+        font-size: 0.85rem;
+
+        margin-bottom: 28px;
+
+    }
+
+    .legal-container section {
+
+        margin-bottom: 24px;
+
+    }
+
+    .legal-container h2 {
+
+        font-size: 1.1rem;
+
+    }
+
+    .legal-container p,
+    .legal-container li {
+
+        font-size: 0.9rem;
+
+        line-height: 1.6;
+
+    }
+
+    .legal-container ul {
+
+        padding-left: 18px;
+
+    }
+
+    .hero-section {
+
+        min-height: 80vh;
+
+    }
+
+    .hero-title {
+
+        font-size: 2rem;
+
+        line-height: 1.15;
+
+    }
+
+    .title-slogan {
+
+        font-size: 0.9rem;
+
+    }
+
+    .CTA-btn {
+
+        flex-direction: column;
+
+        width: 100%;
+
+        max-width: 320px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+    .primary-CTA,
+    .secondary-CTA {
+
+        width: 100%;
+
+    }
+
+    .working,
+    .featured-notes,
+    .trust-section,
+    .audience-section,
+    .faq-section {
+
+        padding: 60px 14px;
+
+    }
+
+    .detail-title {
+
+        font-size: 22px;
+
+        text-align: center;
+
+    }
+
+    .person-btn {
+
+        padding: 8px 18px;
+
+        font-size: 14px;
+
+    }
+
+    .step-logo {
+
+        height: 65px;
+
+    }
+
+    .step-logo i {
+
+        font-size: 22px;
+
+    }
+
+    .step-title {
+
+        font-size: 16px;
+
+    }
+
+    .step-data {
+
+        font-size: 13px;
+
+    }
+
+    .result {
+
+        gap: 10px;
+
+    }
+
+    .outcome {
+
+        font-size: 14px;
+
+    }
+
+    .browse,
+    .upload {
+
+        font-size: 16px;
+
+    }
+
+    .trust-card,
+    .audience-card {
+
+        padding: 20px;
+
+    }
+
+    .faq-question {
+
+        padding: 18px;
+
+        font-size: 0.95rem;
+
+    }
+
+    .faq-answer {
+
+        padding: 0 18px;
+
+    }
+
+    .footer-container {
+
+        gap: 24px;
+
+    }
+
+    .auth-page {
+        padding: 12px;
+    }
+    .auth-container {
+        margin: 0;
+        border-radius: 16px;
+    }
+    .auth-info {
+        padding: 24px;
+    }
+    .auth-card {
+        padding: 24px;
+    }
+    .auth-info h1 {
+        font-size: 1.6rem;
+    }
+    .auth-card h2 {
+        font-size: 1.5rem;
+    }
+    .auth-info p,
+    .auth-card p {
+        font-size: 0.9rem;
+    }
+    .form-group input {
+        padding: 10px;
+    }
+    .auth-btn {
+        padding: 11px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    .legal-page {
+
+        padding: 40px 12px;
+
+    }
+
+    .legal-container h1 {
+
+        font-size: 1.5rem;
+
+    }
+
+    .legal-container h2 {
+
+        font-size: 1rem;
+
+    }
+
+    .legal-container p,
+    .legal-container li {
+
+        font-size: 0.85rem;
+
+    }
+
+    .note-details {
+
+        padding: 15px 10px;
+
+    }
+
+    .note-main,
+    .stats-card,
+    .action-card {
+
+        padding: 14px;
+
+    }
+
+    .note-title {
+
+        font-size: 1.4rem;
+
+    }
+
+    .note-badge {
+
+        font-size: 12px;
+
+        padding: 5px 10px;
+
+    }
+
+    .primary-btn,
+    .secondary-btn {
+
+        padding: 10px;
+
+        font-size: 0.85rem;
+
+    }
+
+    .pdf-preview iframe {
+
+        height: 260px;
+
+    }
+
+    .hero-title {
+
+        font-size: 1.7rem;
+
+    }
+
+    .title-slogan {
+
+        font-size: 0.85rem;
+
+    }
+
+    .detail-title {
+
+        font-size: 20px;
+
+    }
+
+    .section-header h2 {
+
+        font-size: 1.5rem;
+
+    }
+
+    .trust-card,
+    .audience-card {
+
+        padding: 16px;
+
+    }
+
+    .faq-question {
+
+        font-size: 0.9rem;
+
+    }
+
+    .modal-box {
+
+        width: calc(100% - 20px);
+
+        padding: 18px;
+
+    }
+    .auth-info {
+        padding: 20px;
+    }
+    .auth-card {
+        padding: 20px;
+    }
+    .auth-info h1 {
+        font-size: 1.4rem;
+    }
+    .auth-card h2 {
+        font-size: 1.3rem;
+    }
+    .form-group input {
+        font-size: 0.9rem;
+    }
+    .auth-btn {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .note-details {
+        padding: 40px 24px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

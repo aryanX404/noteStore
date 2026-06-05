@@ -260,20 +260,3 @@ body {
         var(--surface-hover);
 
 }
-
-@media (max-width: 900px) {
-
-    .note-layout {
-
-        grid-template-columns:
-            1fr;
-
-    }
-
-    .note-title {
-
-        font-size: 2rem;
-
-    }
-
-}
