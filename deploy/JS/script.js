@@ -39,7 +39,7 @@ if (token) {
             () => {
 
                 window.location.href =
-                    "../Pages/notes.html";
+                    "../notes.html";
 
             }
         );
@@ -183,11 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
   ======================== */
 
   document.querySelector('.nav-item.login')?.addEventListener('click', () => {
-    window.location.href = '../Pages/login_signup.html?mode=login';
+    window.location.href = '../login_signup.html?mode=login';
   });
 
   document.querySelector('.signup-btn')?.addEventListener('click', () => {
-    window.location.href = '../Pages/login_signup.html?mode=signup';
+    window.location.href = '../login_signup.html?mode=signup';
   });
 
   /* =======================
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ======================== */
 
   document.querySelector('.primary-CTA')?.addEventListener('click', () => {
-    window.location.href = '../Pages/notes.html';
+    window.location.href = '../notes.html';
   });
 
   /* =======================
@@ -222,11 +222,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   resultBox?.addEventListener('click', (e) => {
     if (e.target.closest('.browse')) {
-      window.location.href = '../Pages/notes.html';
+      window.location.href = '../notes.html';
     }
 
     if (e.target.closest('.upload')) {
-      window.location.href = '../Pages/notes.html?mode=upload';
+      window.location.href = '../notes.html?mode=upload';
     }
   });
 
@@ -250,14 +250,14 @@ document.addEventListener("DOMContentLoaded", () => {
           if (!token) {
 
               window.location.href =
-                  "../Pages/login_signup.html?mode=login";
+                  "../login_signup.html?mode=login";
 
               return;
 
           }
 
           window.location.href =
-              "../Pages/notes.html?mode=upload";
+              "../notes.html?mode=upload";
 
       }
   );
