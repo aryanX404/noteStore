@@ -66,15 +66,13 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  width: 100%;
-  height: 64px;
-
+  width: 85%;
+  height: 84px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 0 40px;
-
+  margin: 0px auto;
   background: rgba(18, 18, 18, 0.75);
   backdrop-filter: blur(2px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -98,11 +96,13 @@ body {
 }
 
 .logo .l1 {
+  font-size: 2.5rem;
   color: var(--text-high);
 }
 
 .logo .l2 {
   color: var(--accent-orange);
+  font-size: 2.5rem;
   margin-left: 2px;
 }
 
@@ -126,7 +126,7 @@ body {
 
 .nav-item {
   font-family: var(--font-family-primary);
-  font-size: 14.5px;
+  font-size: 18px;
   font-weight: 500;
   color: var(--text-medium);
   cursor: pointer;
@@ -205,17 +205,14 @@ body {
 /* ===== HERO SECTION ===== */
 .hero-section {
   position: relative;
-  min-height: 90vh;
-
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   padding: 0 20px;
   text-align: center;
-
-  background: url("../Assets/hero1.jpg") center / cover no-repeat;
+  background: url("../Assets/study2.jpg") center / cover no-repeat;
   overflow: hidden;
 }
 
@@ -241,7 +238,7 @@ body {
 
 
 .hero-title {
-  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-size: 4rem;
   font-weight: 800;
   letter-spacing: -0.6px;
   line-height: 1.1;
